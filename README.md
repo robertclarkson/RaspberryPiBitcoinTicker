@@ -18,4 +18,10 @@ cd ~
 git clone git@github.com:robertclarkson/RasberryPiBitcoinTicker.git
 
 ```
-
+3.
+```
+sudo pip install requests
+```
+cd RaspberryPiBitcoinTicker
+chmod 774 bitcoin.py
+./bitcoin.py
