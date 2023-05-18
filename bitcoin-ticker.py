@@ -19,33 +19,33 @@ microdotphat.write_string("hello", offset_x=0, offset_y=0, kerning=False)
 url = "http://api.coindesk.com/v1/bpi/currentprice.json"
 
 def get_timeout():
-    return ticks_per_second * refresh_interval
+	return ticks_per_second * refresh_interval
 
 def get_wet():
 # Get the weather data
-#    print("Price Update...")
+#	print("Price Update...")
 #scrollphat.set_pixels(lambda x, y: 1, auto_update=True)
-    try:
-    	resp = requests.get(url)
-    	sine()
+	try:
+		resp = requests.get(url)
+		sine()
 	data = json.loads(resp.text)
-    	val = data['bpi']['USD']['rate']
-    except:
+		val = data['bpi']['USD']['rate']
+	except:
 	#print(resp)
 	return "ERR"
-    return val
+	return val
 
 def sine():
-    timer = 0
-    while (timer < 1):
-        microdotphat.clear()
+	timer = 0
+	while (timer < 1):
+		microdotphat.clear()
 	t = time.time() * 10
-    	for x in range(45):
-        	y = int((math.sin(t + (x/2.5)) + 1) * 3.5)
-        	microdotphat.set_pixel(x, y, 1)
-        
-    	microdotphat.show()
-    	time.sleep(0.01)
+		for x in range(45):
+			y = int((math.sin(t + (x/2.5)) + 1) * 3.5)
+			microdotphat.set_pixel(x, y, 1)
+		
+		microdotphat.show()
+		time.sleep(0.01)
 	timer+=0.01
 
 timeout = get_timeout()
@@ -56,20 +56,20 @@ microdotphat.write_string(msg, offset_x=0, offset_y=0, kerning=False)
 microdotphat.show()
 
 while True:
-    try:
-#        scrollphat.scroll()
-        time.sleep(pause)
+	try:
+#		scrollphat.scroll()
+		time.sleep(pause)
 
-        if(count > timeout):
-            msg = get_wet()
-            #scrollphat.write_string(msg)
-            microdotphat.clear()
-	    microdotphat.write_string(msg, offset_x=0, kerning=False)
-	    microdotphat.show()
-	    timeout = get_timeout()
-            count = 0
-        else:
-            count = count+ 1
-    except KeyboardInterrupt:
-        #scrollphat.clear()
-        sys.exit(-1)
+		if(count > timeout):
+			msg = get_wet()
+			#scrollphat.write_string(msg)
+			microdotphat.clear()
+		microdotphat.write_string(msg, offset_x=0, kerning=False)
+		microdotphat.show()
+		timeout = get_timeout()
+			count = 0
+		else:
+			count = count+ 1
+	except KeyboardInterrupt:
+		#scrollphat.clear()
+		sys.exit(-1)
