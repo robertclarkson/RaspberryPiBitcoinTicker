@@ -1,16 +1,15 @@
 # Rasberry Pi Bitcoin Ticker
-Display the current Bitcoin price on a Raspberry Pi Zero with Scroll pHAT
+Display the current Bitcoin price on a Raspberry Pi Zero with Micro dot pHAT
 
 ## Requirements
-1. Raspberry Pi Zero
-2. Scroll pHAT
-3. WIFI dongle
+1. Raspberry Pi Zero W or Wifi dongle
+2. Micro dot pHAT
 
 ## Installation instructions
 
-1. Install the Scroll pHAT on the pi
+1. Install the Micro dot pHAT on the pi
 ```
-curl -sS https://get.pimoroni.com/scrollphat | bash
+curl -sS https://get.pimoroni.com/microdotphat | bash
 ```
 2. clone this repo into the pi home dir
 ```
@@ -22,10 +21,10 @@ git clone https://github.com/robertclarkson/RaspberryPiBitcoinTicker.git
 ```
 sudo pip install requests
 cd RaspberryPiBitcoinTicker
-chmod 774 bitcoin.py
-./bitcoin.py
+chmod 777 bitcoin-ticker.py
+./bitcoin-ticker.py
 ```
 4. setup crontab
 ```
-@reboot sleep 60 && /home/pi/bitcoin-ticker.py >> /home/pi/bitcoin-scroll.log 2>&1
+@reboot sleep 60 && /home/pi/RaspberryPiBitcoinTicker/bitcoin-ticker.py >> /home/pi/RaspberryPiBitcoinTicker/bitcoin-scroll.log 2>&1
 ```
