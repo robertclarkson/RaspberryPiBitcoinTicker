@@ -46,7 +46,7 @@ def sine():
         
         microdotphat.show()
         time.sleep(0.01)
-    timer+=0.01
+        timer+=0.01
 
 timeout = get_timeout()
 count = 0
