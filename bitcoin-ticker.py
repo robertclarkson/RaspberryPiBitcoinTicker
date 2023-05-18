@@ -28,18 +28,18 @@ def get_wet():
     try:
         resp = requests.get(url)
         sine()
-    data = json.loads(resp.text)
+        data = json.loads(resp.text)
         val = data['bpi']['USD']['rate']
     except:
-    #print(resp)
-    return "ERR"
+        #print(resp)
+        return "ERR"
     return val
 
 def sine():
     timer = 0
     while (timer < 1):
         microdotphat.clear()
-    t = time.time() * 10
+        t = time.time() * 10
         for x in range(45):
             y = int((math.sin(t + (x/2.5)) + 1) * 3.5)
             microdotphat.set_pixel(x, y, 1)
@@ -57,20 +57,18 @@ microdotphat.show()
 
 while True:
     try:
-#        scrollphat.scroll()
         time.sleep(pause)
 
         if(count > timeout):
             msg = get_wet()
             #scrollphat.write_string(msg)
             microdotphat.clear()
-        microdotphat.write_string(msg, offset_x=0, kerning=False)
-        microdotphat.show()
-        timeout = get_timeout()
+            microdotphat.write_string(msg, offset_x=0, kerning=False)
+            microdotphat.show()
+            timeout = get_timeout()
             count = 0
         else:
             count = count+ 1
     except KeyboardInterrupt:
         #scrollphat.clear()
         sys.exit(-1)
-
