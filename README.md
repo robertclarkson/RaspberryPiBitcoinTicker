@@ -15,7 +15,7 @@ curl -sS https://get.pimoroni.com/scrollphat | bash
 2. clone this repo into the pi home dir
 ```
 cd ~
-git clone git@github.com:robertclarkson/RasberryPiBitcoinTicker.git
+git clone https://github.com/robertclarkson/RaspberryPiBitcoinTicker.git
 
 ```
 3.
