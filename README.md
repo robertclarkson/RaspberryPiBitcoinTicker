@@ -25,3 +25,7 @@ cd RaspberryPiBitcoinTicker
 chmod 774 bitcoin.py
 ./bitcoin.py
 ```
+4. setup crontab
+```
+@reboot sleep 60 && /home/pi/bitcoin-ticker.py >> /home/pi/bitcoin-scroll.log 2>&1
+```
